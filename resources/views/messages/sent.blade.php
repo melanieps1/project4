@@ -18,7 +18,7 @@
                         </div>
                     @endif
 
-                    <h4><strong>Message Sent: {{ $message->subject }}</strong>
+                    <h4><strong>Subject: {{ $message->subject }}</strong>
                     </h4>
                     <p>From: {{ $message->sender->name }}</p>
                     <p style="float: right;">Sent: {{ $message->created_at->format('m/d/Y') }}</p>
