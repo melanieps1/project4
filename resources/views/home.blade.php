@@ -29,8 +29,13 @@
                         <th>Subject</th>
                         <th>Date</th>
                     </tr>
-                    @foreach ($received_messages as $message)
-                    <tr >
+                    @foreach ($received_messages->sortBy('created_at') as $message)
+                    
+                    @if (!$message->is_read)
+                    <tr style="background-color: #fff7d1;">
+                    @else
+                    <tr>
+                    @endif
                         <td>
                             @if ($message->is_starred) 
                                 <strong style="color: #FFD700;">&#9734;</strong>
@@ -38,31 +43,17 @@
                                 <strong style="color: #e0e0e0;">&#9734;</strong>
                             @endif
                         </td>
-                        @if ($message->is_read)
-                            <td>{{ $message->sender->name }}</td>
-                            <td>{{ $message->recipient->name }}</td>
-                            <td><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></td>
-                            <td>{{ $message->created_at->format('m/d/Y') }}</td>
-                            <td>
-                                <form>
-                                    {{ method_field('DELETE') }}
-                                    {{ csrf_field() }}
-                                    <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                </form>
-                            </td>
-                        @else
-                            <td><strong>{{ $message->sender->name }}</strong></td>
-                            <td><strong>{{ $message->recipient->name }}</strong></td>
-                            <td><strong><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></strong></td>
-                            <td><strong>{{ $message->created_at->format('m/d/Y') }}</strong></td>
-                            <td>
-                                <form>
-                                    {{ method_field('DELETE') }}
-                                    {{ csrf_field() }}
-                                    <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                </form>
-                            </td>
-                        @endif
+                        <td>{{ $message->sender->name }}</td>
+                        <td>{{ $message->recipient->name }}</td>
+                        <td><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></td>
+                        <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                        <td>
+                            <form method="post" action="/message/{{ $message->id }}">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                     </table>
@@ -76,7 +67,7 @@
                         <th>Subject</th>
                         <th>Date</th>
                     </tr>
-                    @foreach ($sent_messages as $message)
+                    @foreach ($sent_messages->sortBy('created_at') as $message)
                     <tr>
                         <td>
                             @if ($message->is_starred) 
@@ -88,7 +79,7 @@
                         <td><a href="/sent/{{ $message->id }}">{{ $message->subject }}</a></td>
                         <td>{{ $message->created_at->format('m/d/Y') }}</td>
                         <td>
-                            <form>
+                            <form method="post" action="/message/{{ $message->id }}">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
                                 <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>

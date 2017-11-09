@@ -92,6 +92,7 @@ class MessageController extends Controller
     {
         $message = \App\Message::find($id);
         $message->delete();
+        
         return redirect('home');
     }
 }
