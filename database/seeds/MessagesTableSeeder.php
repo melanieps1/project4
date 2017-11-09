@@ -19,7 +19,6 @@ class MessagesTableSeeder extends Seeder
       $kevin = User::where('name', 'Kevin')->first();
       $stuart = User::where('name', 'Stuart')->first();
       $scarlet = User::where('name', 'Scarlet Overkill')->first();
-      $melanie = User::where('name', 'Melanie')->first();
 
       DB::table('messages')->insert([
         'sender_id' => $gru->id,
@@ -127,39 +126,6 @@ class MessagesTableSeeder extends Seeder
         'body' => 'Coopee linda Gelato!',
         'is_read' => true,
         'is_starred' =>false,
-        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-      ]);
-
-      DB::table('messages')->insert([
-        'sender_id' => $melanie->id,
-        'recipient_id' => $stuart->id,
-        'subject' => 'Melanie sent this email',
-        'body' => 'Please take out the recycling and wash the Grumobile. Thanks!',
-        'is_read' => false,
-        'is_starred' =>false,
-        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-      ]);
-
-      DB::table('messages')->insert([
-        'sender_id' => $gru->id,
-        'recipient_id' => $melanie->id,
-        'subject' => 'Melanie received this email',
-        'body' => 'Please take out the recycling and wash the Grumobile. Thanks!',
-        'is_read' => false,
-        'is_starred' =>false,
-        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-      ]);
-
-      DB::table('messages')->insert([
-        'sender_id' => $bob->id,
-        'recipient_id' => $melanie->id,
-        'subject' => 'Bello, buddy!',
-        'body' => 'Coopee linda Gelato!',
-        'is_read' => true,
-        'is_starred' =>true,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
