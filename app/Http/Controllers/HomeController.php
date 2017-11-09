@@ -24,6 +24,15 @@ class HomeController extends Controller
     public function index()
     {
         $messages = \App\Message::all();
-        return view('home', compact('messages'));
+
+        $received_messages = \App\Message::where([
+            ['recipient_id', '=', \Auth::user()->id]
+            ])->get();
+
+        $sent_messages = \App\Message::where([
+            ['sender_id', '=', \Auth::user()->id]
+            ])->get();
+
+        return view('home', compact('received_messages', 'sent_messages'));
     }
 }
