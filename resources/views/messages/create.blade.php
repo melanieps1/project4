@@ -16,7 +16,7 @@
 
                     <h3>Compose New Villain Message</h3>
 
-                    <form method="post" action="/message/create" class="form-horizontal">
+                    <form method="get" action="/message/create" class="form-horizontal">
 
                         @component('components.static', [
                           'name' => 'From: ',
@@ -24,16 +24,9 @@
                           ])
                         @endcomponent
 
-                        <div class="dropdown">
-                            <label class="col-sm-2 control-label">To: </label>
-                          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose recipient
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            @foreach ($message as $messages)
-                                <li><a href="#">{{ $message->recipient->name }}</a></li>
-                            @endforeach
-                          </ul>
-                        </div>
+                        @component('components.select', [
+                          ])
+                        @endcomponent
                         <br>
 
                         @component('components.field', [
@@ -51,7 +44,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-12 text-center">
-                              <button class="btn btn-sm btn-default" type="submit">Send Evil Email!</button>    
+                              <button class="btn btn-default" type="submit" style="float: right;"><a onclick="sendEmail()" href="{{ route('home') }}">Send Evil Email!</a></button>
                             </div>
                           </div>
 

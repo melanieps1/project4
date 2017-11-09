@@ -44,9 +44,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $message = \App\Message::find($id);
-        $message->save();
-        return redirect('home');
+        //
     }
 
     /**
@@ -92,6 +90,8 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $message = \App\Message::find($id);
+        $message->delete();
+        return redirect('home');
     }
 }

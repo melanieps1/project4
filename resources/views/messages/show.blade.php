@@ -18,8 +18,14 @@
                         <strong>{{ $message->subject }}</strong>
                         @if ($message->is_starred) 
                             <strong style="color: #FFD700;">&#9734;</strong>
+                            <button class="btn btn-xs btn-default" style="float: right; outline: none;" onclick="star()">
+                                Unstar message
+                            </button>
                         @elseif (!$message->is_starred)
                             <strong style="color: #e0e0e0;">&#9734;</strong>
+                            <button class="btn btn-xs btn-default" style="float: right;  outline: none;" onclick="star()">
+                                Star message
+                            </button>
                         @endif
                     </h4>
                     <p>From: {{ $message->recipient->name }}</p>

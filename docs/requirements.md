@@ -40,7 +40,7 @@ Have fun and enjoy your day of coding!
 
 2. [] You should be able to click on a message in the home screen to view it, reply to it, and star it.
 
-3. [x] When a message has been read, it should no longer be highlighted on the home screen.
+3. [] When a message has been read, it should no longer be highlighted on the home screen.
 
 4. [] The seed data shows the same message being sent to multiple recipients. It would be more efficient if the database supported multiple recipients on a single message. Create migrations to modify the tables to support a one-to-many relationship between messages and recipients.
 

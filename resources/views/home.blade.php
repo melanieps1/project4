@@ -43,11 +43,25 @@
                             <td>{{ $message->recipient->name }}</td>
                             <td><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></td>
                             <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                            <td>
+                                <form>
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                </form>
+                            </td>
                         @else
                             <td><strong>{{ $message->sender->name }}</strong></td>
                             <td><strong>{{ $message->recipient->name }}</strong></td>
                             <td><strong><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></strong></td>
                             <td><strong>{{ $message->created_at->format('m/d/Y') }}</strong></td>
+                            <td>
+                                <form>
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                </form>
+                            </td>
                         @endif
                     </tr>
                     @endforeach
@@ -73,6 +87,13 @@
                         <td>{{ $message->recipient->name }}</td>
                         <td><a href="/sent/{{ $message->id }}">{{ $message->subject }}</a></td>
                         <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                        <td>
+                            <form>
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button class="btn btn-xs btn-default space-right" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                     </table>
