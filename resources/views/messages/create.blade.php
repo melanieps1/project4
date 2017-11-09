@@ -24,8 +24,7 @@
                           ])
                         @endcomponent
 
-                        @component('components.select', [
-                          ])
+                        @component('components.select')
                         @endcomponent
                         <br>
 

@@ -15,17 +15,13 @@ class Message extends Model
     return $this->belongsTo('App\User', 'recipient_id');
   }
 
+  public function user() {
+    return $this->belongsTo('App\User', 'name');
+  }
+
   public function sendEmail() {
   	$message->save();
   	return redirect('home');
-  }
-
-  public function star() {
-  	if ($message->is_starred) {
-  		$message->is_starred == false;
-  	} else {
-  		$message->is_starred == true;
-  	}
   }
 
 }

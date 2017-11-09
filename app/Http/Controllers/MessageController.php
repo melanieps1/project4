@@ -25,6 +25,8 @@ class MessageController extends Controller
     {
         // create a email message
         $message = new \App\Message;
+        // $user = new \App\User;
+
         $message->sender_id = 6;
         $message->recipient_id = 2;
         $message->subject = 'Test email subject';
@@ -33,7 +35,7 @@ class MessageController extends Controller
         $message->is_starred = false;
         $message->save();
 
-        return view('messages.create', compact('message'));
+        return view('messages.create', compact('message', 'user'));
     }
 
     /**

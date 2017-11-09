@@ -46,7 +46,7 @@
                         <td>{{ $message->sender->name }}</td>
                         <td>{{ $message->recipient->name }}</td>
                         <td><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></td>
-                        <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                        <td>{{ $message->created_at->format('F d, Y') }}</td>
                         <td>
                             <form method="post" action="/message/{{ $message->id }}">
                                 {{ method_field('DELETE') }}
@@ -77,7 +77,7 @@
                         <td>{{ $message->sender->name }}</td>
                         <td>{{ $message->recipient->name }}</td>
                         <td><a href="/sent/{{ $message->id }}">{{ $message->subject }}</a></td>
-                        <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                        <td>{{ $message->created_at->format('F d, Y') }}</td>
                         <td>
                             <form method="post" action="/message/{{ $message->id }}">
                                 {{ method_field('DELETE') }}
