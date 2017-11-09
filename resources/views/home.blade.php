@@ -30,10 +30,17 @@
                                 <strong>&#9734;</strong>
                             @endif
                         </td>
-                        <td>{{ $message->sender->name }}</td>
-                        <td>{{ $message->recipient->name }}</td>
-                        <td>{{ $message->subject }}</td>
-                        <td>{{ $message->created_at }}</td>
+                        @if ($message->is_read)
+                            <td>{{ $message->sender->name }}</td>
+                            <td>{{ $message->recipient->name }}</td>
+                            <td>{{ $message->subject }}</td>
+                            <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                        @else
+                            <td><strong>{{ $message->sender->name }}</strong></td>
+                            <td><strong>{{ $message->recipient->name }}</strong></td>
+                            <td><strong>{{ $message->subject }}</strong></td>
+                            <td><strong>{{ $message->created_at->format('m/d/Y') }}</strong></td>
+                        @endif
                     </tr>
                     @endforeach
                     </table>
@@ -57,7 +64,7 @@
                         <td>{{ $message->sender->name }}</td>
                         <td>{{ $message->recipient->name }}</td>
                         <td>{{ $message->subject }}</td>
-                        <td>{{ $message->created_at }}</td>
+                        <td>{{ $message->created_at->format('m/d/Y') }}</td>
                     </tr>
                     @endforeach
                     </table>
