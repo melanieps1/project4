@@ -24,7 +24,7 @@
                         <th>Date</th>
                     </tr>
                     @foreach ($received_messages as $message)
-                    <tr>
+                    <tr >
                         <td>
                             @if ($message->is_starred) 
                                 <strong>&#9734;</strong>
@@ -33,19 +33,19 @@
                         @if ($message->is_read)
                             <td>{{ $message->sender->name }}</td>
                             <td>{{ $message->recipient->name }}</td>
-                            <td>{{ $message->subject }}</td>
+                            <td><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></td>
                             <td>{{ $message->created_at->format('m/d/Y') }}</td>
                         @else
                             <td><strong>{{ $message->sender->name }}</strong></td>
                             <td><strong>{{ $message->recipient->name }}</strong></td>
-                            <td><strong>{{ $message->subject }}</strong></td>
+                            <td><strong><a href="/message/{{ $message->id }}">{{ $message->subject }}</a></strong></td>
                             <td><strong>{{ $message->created_at->format('m/d/Y') }}</strong></td>
                         @endif
                     </tr>
                     @endforeach
                     </table>
 
-                    <h3>Outbox</h3>
+                    <h3>Sent</h3>
                     <table class="table">
                     <tr>
                         <th></th>
@@ -63,7 +63,7 @@
                         </td>
                         <td>{{ $message->sender->name }}</td>
                         <td>{{ $message->recipient->name }}</td>
-                        <td>{{ $message->subject }}</td>
+                        <td><a href="/sent/{{ $message->id }}">{{ $message->subject }}</a></td>
                         <td>{{ $message->created_at->format('m/d/Y') }}</td>
                     </tr>
                     @endforeach
