@@ -38,15 +38,15 @@ Have fun and enjoy your day of coding!
 
 1. [ ] There's no way to enter a new message. Create a form for that. The only valid recipients for a message should be other VMail users (no external email addresses).
 
-2. [] You should be able to click on a message in the home screen to view it, reply to it, and star it.
+2. [ ] You should be able to click on a message in the home screen to view it, reply to it, and star it.
 
-3. [] When a message has been read, it should no longer be highlighted on the home screen.
+3. [ ] When a message has been read, it should no longer be highlighted on the home screen.
 
-4. [] The seed data shows the same message being sent to multiple recipients. It would be more efficient if the database supported multiple recipients on a single message. Create migrations to modify the tables to support a one-to-many relationship between messages and recipients.
+4. [ ] The seed data shows the same message being sent to multiple recipients. It would be more efficient if the database supported multiple recipients on a single message. Create migrations to modify the tables to support a one-to-many relationship between messages and recipients.
 
 5. [x] Users should be able to view messages they have sent. Sent messages should always display as if they were read; users know what they wrote.
 
 6. [x] Users should be able to delete messages they have received or sent. (How should this be handled if you've completed #4?)
 
-7. [] Bootstrap is nice, but this application could use its own style and design.
+7. [ ] Bootstrap is nice, but this application could use its own style and design.
  
