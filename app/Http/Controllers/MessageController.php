@@ -23,7 +23,17 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        // create a email message
+        $message = new \App\Message;
+        $message->sender_id = 6;
+        $message->recipient_id = 2;
+        $message->subject = 'Test email subject';
+        $message->body = 'Test email message';
+        $message->is_read = false;
+        $message->is_starred = false;
+        $message->save();
+
+        return view('messages.create', compact('message'));
     }
 
     /**
@@ -34,7 +44,9 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = \App\Message::find($id);
+        $message->save();
+        return redirect('home');
     }
 
     /**

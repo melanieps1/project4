@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    <form method="get" action="/message/create/">
+                        <button class="btn btn-primary">
+                            <strong>Compose</strong>
+                        </button>
+                    </form>
+
                     <h3>Inbox</h3>
                     <table class="table">
                     <tr>
@@ -27,7 +33,9 @@
                     <tr >
                         <td>
                             @if ($message->is_starred) 
-                                <strong>&#9734;</strong>
+                                <strong style="color: #FFD700;">&#9734;</strong>
+                            @elseif (!$message->is_starred)
+                                <strong style="color: #e0e0e0;">&#9734;</strong>
                             @endif
                         </td>
                         @if ($message->is_read)
